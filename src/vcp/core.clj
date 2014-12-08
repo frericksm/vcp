@@ -4,7 +4,7 @@
             [ring.middleware.resource :refer [wrap-resource]]
             [ring.middleware.content-type :refer [wrap-content-type]]
             [ring.middleware.not-modified :refer [wrap-not-modified]]
-            [ring.middleware.json :only [wrap-json-response wrap-json-body]]
+            [ring.middleware.json :refer [wrap-json-response wrap-json-body]]
             [compojure.core :refer [defroutes ANY]]
             ;;[compojure.route :as route]
              ))
