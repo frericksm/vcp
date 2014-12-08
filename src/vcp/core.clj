@@ -14,7 +14,7 @@
   :allowed-methods [:post :get]
   :available-media-types ["application/json"]
   :handle-ok (fn [_] {::id 1})
-  :post! (fn [ctx] {::id id})
+  :post! (fn [ctx] (do (prn id) {::id id}))
   )
 
 (defroutes app
