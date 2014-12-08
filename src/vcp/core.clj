@@ -4,8 +4,7 @@
             [ring.middleware.resource :refer [wrap-resource]]
             [ring.middleware.content-type :refer [wrap-content-type]]
             [ring.middleware.not-modified :refer [wrap-not-modified]]
-            [ring.middleware.json :only [wrap-json-response]]
-            [ring.middleware.json :only [wrap-json-body]]
+            [ring.middleware.json :only [wrap-json-response wrap-json-body]]
             [compojure.core :refer [defroutes ANY]]
             ;;[compojure.route :as route]
              ))
@@ -14,16 +13,12 @@
 (defresource queue [id]
   :allowed-methods [:post :get]
   :available-media-types ["application/json"]
-  :handle-ok (fn [_] (format "The text is %s" txt))
-  :post! (fn [ctx]
-           (dosync 
-            (let [body (slurp (get-in ctx [:request :body]))
-                  id   (count (alter posts conj body))]
-              {::id id})))
+  :handle-ok (fn [_] {::id 1})
+  :post! (fn [ctx] {::id id})
   )
 
 (defroutes app
-  (ANY "/api/queue" [] queue)
+  (ANY "/api/queue" [id] (queue id))
   (ANY "/foo" []
        (resource :available-media-types ["text/html"]
                  :handle-ok
