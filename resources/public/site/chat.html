@@ -18,6 +18,21 @@
     <!--script src="js/ratchet.js"></script-->
     <!--script src="js/fingerblast.js"></script-->
     <script src="js/jquery-2.1.1.min.js"></script>
+    <style>
+      video {
+      margin: 0 0.5em 1.5em 0;
+      -webkit-transform: scaleX(-1);
+      -moz-transform: scaleX(-1);
+      -ms-transform:  scaleX(-1);
+      -o-transform:  scaleX(-1);
+      transform: scaleX(-1);
+      }
+      @media screen and (min-width: 1000px) {
+      video {
+      width: 49%;
+      }
+      }
+  </style>  
   </head>
   <body>
 
@@ -36,7 +51,13 @@
             </div>
           </li>
           <li class="table-view-cell media">
-            <img class="media-object pull-left" src="images/Cats-selfie-04.jpg"/>
+            <video id="localVideo" autoplay></video>
+            <video id="remoteVideo" autoplay></video>
+            <div>
+              <button id="startButton">Start</button>
+              <button id="callButton">Call</button>
+              <button id="hangupButton">Hang Up</button>
+            </div>
           </li>          
         </ul>
       </div>
@@ -44,6 +65,7 @@
     <script type='text/javascript'>
       /* var fb = new FingerBlast ('body'); */
     </script>
+    <script src="js/main.js"></script>
   </body>
 
 </html>
