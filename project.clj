@@ -6,4 +6,5 @@
                  [compojure "1.3.1"]
                  [ring "1.3.2"]
                  [ring/ring-json "0.3.1"]
+                 [http-kit "2.1.16"]
                  ])

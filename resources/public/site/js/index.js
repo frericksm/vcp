@@ -37,9 +37,7 @@ ChatCockpit.prototype.notifySound = function() {
  */
 ChatCockpit.prototype.initializeHandler = function() {
 	var that = this;
-	this.$starten.click(function() {
-		that.starten();
-	});
+	this.$starten.click(function() {that.starten();	});
 };
 
 /**
